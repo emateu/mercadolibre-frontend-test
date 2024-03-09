@@ -1,0 +1,19 @@
+DS_Store
+node_modules
+build
+dist
+package.json
+tsconfig.json
+.svelte-kit
+.turbo
+.env
+.env.*
+!.env.example
+.npmrc
+.prettierignore
+
+
+# Ignore files for PNPM, NPM and YARN
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
