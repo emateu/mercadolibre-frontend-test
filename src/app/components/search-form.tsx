@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { clsx } from 'clsx'
 
 export function SearchForm() {
   const router = useRouter()
@@ -15,7 +14,8 @@ export function SearchForm() {
     <form
       method="GET"
       action="/items"
-      onSubmit={() => {
+      onSubmit={(e) => {
+        e.preventDefault()
         router.push(`/items?${params.toString()}`)
       }}
     >
@@ -24,7 +24,7 @@ export function SearchForm() {
       </label>
       <div className="flex w-full relative">
         <input
-          className="h-10 shadow px-3 pr-10 w-full rounded-sm focus-style no-clear-button text-md"
+          className="h-10 bg-white shadow px-3 pr-10 w-full rounded-sm focus-style no-clear-button text-md"
           type="search"
           name="search"
           value={search}
@@ -34,9 +34,7 @@ export function SearchForm() {
 
         <button
           type="submit"
-          className={clsx(
-            'flex justify-center items-center rounded-sm absolute bg-gray-100 top-0 right-0 h-10 w-10 focus-style'
-          )}
+          className="flex justify-center items-center rounded-sm absolute bg-gray-100 top-0 right-0 h-10 w-10 focus-style"
           aria-label="Buscar"
         >
           <svg
